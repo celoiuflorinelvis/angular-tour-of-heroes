@@ -14,4 +14,14 @@ export class HeroService {
     this.messagesService.addMessage('Heroes were successfully fetched!');
     return of(HEROES);
   }
+
+  getHero(id: number): Observable<Hero | undefined> {
+    let hero = HEROES.find((h) => h.id === id);
+    if (hero) {
+      this.messagesService.addMessage(`Hero ${hero.name} is selected.`);
+    } else {
+      this.messagesService.addMessage(`Hero was not found.`);
+    }
+    return of(hero);
+  }
 }
