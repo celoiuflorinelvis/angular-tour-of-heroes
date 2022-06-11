@@ -2,6 +2,10 @@
   <div [hidden]="submitted">
     <h1>Hero Form</h1>
 
+    <p>
+      {{ model | json }}
+    </p>
+
     <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
       <div class="form-group">
         <label for="idName">Name: </label>
